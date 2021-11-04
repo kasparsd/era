@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "modbus-serial": "^8.0.4"
+    "modbus-serial": "^8.0.4",
+    "modbus-stream": "^0.46.0"
   }
 }
