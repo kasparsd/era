@@ -26,8 +26,8 @@ void presentation() {
 }
 
 void loop() {
-	send(msg.set(state ? "1" : "0"));
+    send(msg.set(state ? "1" : "0"));
     state = state ? false : true;
-	delay(5000);
+    delay(5000);
 }
  
