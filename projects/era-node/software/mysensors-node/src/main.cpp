@@ -18,16 +18,16 @@ void setup() {
 }
 
 void presentation() {
-    // Send the sketch version information to the gateway and Controller
-    sendSketchInfo("Motion Sensor", "1.0");
+	// Send the sketch version information to the gateway and Controller
+	sendSketchInfo("Motion Sensor", "1.0");
 
-    // Register all sensors to gw (they will be created as child devices)
-    present(CHILD_ID, S_MOTION);
+	// Register all sensors to gw (they will be created as child devices)
+	present(CHILD_ID, S_MOTION);
 }
 
 void loop() {
-    send(msg.set(state ? "1" : "0"));
-    state = state ? false : true;
-    delay(5000);
+	send(msg.set(state ? "1" : "0"));
+	state = state ? false : true;
+	delay(5000);
 }
  
