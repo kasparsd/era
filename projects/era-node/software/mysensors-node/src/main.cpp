@@ -2,9 +2,13 @@
 
 #define MY_DEBUG
 #define MY_RS485
-#define MY_RS485_DE_PIN D1
+#define MY_RS485_DE_PIN D0
 #define MY_RS485_BAUD_RATE 9600
 #define MY_RS485_HWSERIAL Serial
+
+// Use the Wemos D1 LED for status.
+#define MY_DEFAULT_RX_LED_PIN D4
+#define MY_DEFAULT_TX_LED_PIN D4
 
 #include <MySensors.h>
 
