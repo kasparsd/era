@@ -2,7 +2,7 @@
 
 #define MY_DEBUG
 #define MY_RS485
-#define MY_RS485_DE_PIN D1
+#define MY_RS485_DE_PIN D0
 #define MY_RS485_BAUD_RATE 9600
 #define MY_RS485_HWSERIAL Serial
 
