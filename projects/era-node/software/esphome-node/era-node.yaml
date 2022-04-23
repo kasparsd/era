@@ -1,0 +1,39 @@
+esphome:
+  name: era-modbus-switch
+  platform: ESP8266
+  board: d1_mini
+  includes:
+    - modbus_switch.h
+
+# Enable logging
+logger:
+  baud_rate: 9600
+
+uart:
+  id: uart_modbus
+  tx_pin: TX 
+  rx_pin: RX
+  baud_rate: 9600
+
+modbus:
+  id: modbus1
+  flow_control_pin: D0
+
+switch:
+  - platform: custom
+    lambda: |-
+      auto my_sensor = new MyCustomSwitch(id(modbus1));
+      App.register_component(my_sensor);
+      return {my_sensor};
+    switches:
+      - name: "My Custom Switch"
+        id: custom_enable_load_test
+
+binary_sensor:
+  - platform: gpio
+    pin: D3
+    name: "Button"
+    filters:
+      - delayed_off: 100ms
+    on_press:
+      - switch.toggle: custom_enable_load_test
