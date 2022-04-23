@@ -1,5 +1,5 @@
 esphome:
-  name: era-modbus-rebel
+  name: era-modbus-rebel-switch
   platform: ESP8266
   board: d1_mini
   includes:

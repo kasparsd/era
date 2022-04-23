@@ -1,0 +1,31 @@
+esphome:
+  name: era-modbus-rebel-sensor
+  platform: ESP8266
+  board: d1_mini
+  includes:
+    - modbus_rebel_sensor.h
+  libraries:
+    - mathertel/OneButton@^2.0.3
+
+# Enable logging
+logger:
+  baud_rate: 9600
+
+uart:
+  id: uart_modbus
+  tx_pin: TX 
+  rx_pin: RX
+  baud_rate: 9600
+
+modbus:
+  id: modbus1
+  flow_control_pin: D0
+
+sensor:
+  - platform: custom
+    lambda: |-
+      auto rebel_sensor = new ModbusRebelSensor(id(modbus1), D3);
+      App.register_component(rebel_sensor);
+      return {rebel_sensor};
+    sensors:
+      - name: "Rebel Sensor"
