@@ -3,7 +3,7 @@ esphome:
   platform: ESP8266
   board: d1_mini
   includes:
-    - modbus_switch.h
+    - modbus_rebel_switch.h
 
 # Enable logging
 logger:
@@ -22,11 +22,11 @@ modbus:
 switch:
   - platform: custom
     lambda: |-
-      auto my_sensor = new MyCustomSwitch(id(modbus1));
-      App.register_component(my_sensor);
-      return {my_sensor};
+      auto reber_switch = new ModbusRebelSwitch(id(modbus1));
+      App.register_component(reber_switch);
+      return {reber_switch};
     switches:
-      - name: "My Custom Switch"
+      - name: "Rebel Switch"
         id: custom_enable_load_test
 
 binary_sensor:

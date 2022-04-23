@@ -1,11 +1,13 @@
 #include "esphome.h"
 
-class MyCustomSwitch : public Component, public Switch {
+class ModbusRebelSwitch : public Component, public Switch {
   private:
-    Modbus *modbusApi;
+    Modbus *modbus;
 
   public:
-    MyCustomSwitch(Modbus *modbusComponent) : modbusApi(modbusComponent) {}
+    ModbusRebelSwitch(Modbus *modbus) {
+		this->modbus = modbus;
+	}
 
     void write_state(bool state) override {
       std::vector<uint8_t> payload;
@@ -18,7 +20,7 @@ class MyCustomSwitch : public Component, public Switch {
       // uint16_t number_of_entities,
       // uint8_t payload_len = 0,
       // const uint8_t *payload = nullptr
-      modbusApi->send(3, 5, 6, 1, payload.size(), &payload[0]);
+      modbus->send(3, 5, 6, 1, payload.size(), &payload[0]);
 
       // Acknowledge new state by publishing it.
       publish_state(state);
