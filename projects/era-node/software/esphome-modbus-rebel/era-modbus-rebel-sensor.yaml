@@ -29,3 +29,4 @@ sensor:
       return {rebel_sensor};
     sensors:
       - name: "Rebel Sensor"
+        id: rebel_sensor

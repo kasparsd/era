@@ -27,7 +27,7 @@ switch:
       return {reber_switch};
     switches:
       - name: "Rebel Switch"
-        id: custom_enable_load_test
+        id: rebel_switch
 
 binary_sensor:
   - platform: gpio
