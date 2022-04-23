@@ -1,3 +1,5 @@
+#pragma once
+
 #include "esphome.h"
 
 class ModbusRebelSwitch : public Component, public Switch {
