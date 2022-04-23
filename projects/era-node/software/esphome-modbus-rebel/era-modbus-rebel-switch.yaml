@@ -36,4 +36,4 @@ binary_sensor:
     filters:
       - delayed_off: 100ms
     on_press:
-      - switch.toggle: custom_enable_load_test
+      - switch.toggle: rebel_switch
