@@ -16,6 +16,7 @@ class ModbusRebelSwitch : public Component, public Switch {
 
       payload.push_back(state);
 
+      // TODO: Ensure that UART is silent for X ms before sending.
       modbus->send(
         3, // uint8_t address
         0x05, // uint8_t function_code - WRITE_SINGLE_COIL
