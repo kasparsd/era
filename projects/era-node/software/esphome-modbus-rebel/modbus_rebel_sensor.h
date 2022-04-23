@@ -38,12 +38,18 @@ class ModbusRebelSensor : public Component, public Sensor {
 
     static void onDoubleClick(void *ptr) {
       ModbusRebelSensor *thingPtr = (ModbusRebelSensor *)ptr;
-      thingPtr->send_state(33);
+      thingPtr->send_state(2);
+    }
+
+    static void onLongPress(void *ptr) {
+      ModbusRebelSensor *thingPtr = (ModbusRebelSensor *)ptr;
+      thingPtr->send_state(3);
     }
 
     void setup() override {
-      this->button.attachDuringLongPress(onDoubleClick, this);
       this->button.attachClick(onSingleClick, this);
+      this->button.attachDoubleClick(onDoubleClick, this);
+      this->button.attachDuringLongPress(onLongPress, this);
     }
 
     void loop() override {
