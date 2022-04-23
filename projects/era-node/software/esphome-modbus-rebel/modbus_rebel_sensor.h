@@ -47,12 +47,12 @@ class ModbusRebelSensor : public Component, public Sensor {
     }
 
     void setup() override {
-      this->button.attachClick(onSingleClick, this);
-      this->button.attachDoubleClick(onDoubleClick, this);
-      this->button.attachDuringLongPress(onLongPress, this);
+      button.attachClick(onSingleClick, this);
+      button.attachDoubleClick(onDoubleClick, this);
+      button.attachDuringLongPress(onLongPress, this);
     }
 
     void loop() override {
-      this->button.tick();
+      button.tick();
     }
 };
